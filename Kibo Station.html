@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kibo Station - Savory & Sweet Station</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Rye&family=Special+Elite&family=Space+Mono:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* --- 100% KODE DESAIN & WARNA ASLI KAMU --- */
+        :root {
+            --chalkboard-bg: #1c1d1f;
+            --wood-frame: #4a2c11;
+            --wood-border: #2d1908;
+            --chalk-white: #f4ede2;
+            --gold-vintage: #dfb37c;
+            --gold-glow: #fca311;
+            --wa-green: #25d366;
+        }
+
+        * { box-sizing: border-box; transition: all 0.3s ease; scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Special Elite', cursive;
+            margin: 0;
+            background-color: #121315;
+            background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 0);
+            background-size: 8px 8px;
+            color: var(--chalk-white);
+            line-height: 1.6;
+            padding-bottom: 60px;
+            overflow-x: hidden;
+        }
+
+        /* Navigasi Asli */
+        nav.nav-asli {
+            background-color: var(--wood-border);
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 4px solid var(--gold-vintage);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+        }
+        nav.nav-asli ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+        nav.nav-asli li { margin: 0 25px; }
+        nav.nav-asli a {
+            color: var(--chalk-white);
+            text-decoration: none;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            font-family: 'Montserrat', sans-serif;
+        }
+        nav.nav-asli a:hover { color: var(--gold-glow); text-shadow: 0 0 10px var(--gold-glow); }
+
+        /* Jumbotron Atas Asli */
+        header.jumbotron {
+            background: linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.85)), var(--chalkboard-bg);
+            text-align: center;
+            padding: 25px 20px 40px;
+            border-bottom: 8px double var(--gold-vintage);
+            position: relative;
+            width: 100%;
+        }
+        header h1 {
+            font-family: 'Rye', cursive;
+            font-size: 4rem;
+            margin: 10px 0;
+            color: var(--gold-vintage);
+            letter-spacing: 4px;
+            text-shadow: 4px 4px 0px #000;
+        }
+        header p {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            color: var(--chalk-white);
+            letter-spacing: 3px;
+            margin: 5px 0;
+        }
+        header .tagline {
+            font-family: 'Special Elite', cursive;
+            color: var(--gold-glow);
+            font-size: 1.3rem;
+            margin-top: 15px;
+        }
+
+        /* Desain Papan Tulis Chalkboard Asli */
+        .chalk-board {
+            background: var(--chalkboard-bg);
+            border: 16px solid var(--wood-frame);
+            outline: 4px solid var(--wood-border);
+            border-radius: 4px;
+            padding: 35px;
+            box-shadow: inset 0 0 30px rgba(0,0,0,0.9), 0 15px 35px rgba(0,0,0,0.7);
+            margin-bottom: 40px;
+            position: relative;
+        }
+        h2.section-title {
+            color: var(--gold-vintage);
+            font-family: 'Rye', cursive;
+            font-size: 1.8rem;
+            text-align: center;
+            margin-top: 0;
+            margin-bottom: 35px;
+            border-bottom: 2px dashed rgba(223, 179, 124, 0.4);
+            padding-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        .menu-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px 40px;
+        }
+        .item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            padding: 4px 0;
+        }
+        .item-name { font-size: 1.2rem; letter-spacing: 0.5px; }
+        .dots {
+            flex-grow: 1;
+            border-bottom: 2px dotted rgba(244, 237, 226, 0.25);
+            margin: 0 12px;
+            position: relative;
+            top: -5px;
+        }
+        .price { font-family: 'Space Mono', monospace; color: var(--gold-glow); font-size: 1.2rem; }
+        .jumbo-badge {
+            background-color: #901a1e;
+            color: #fff;
+            padding: 1px 6px;
+            border-radius: 3px;
+            font-size: 0.7rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+            margin-left: 10px;
+            border: 1px solid var(--gold-vintage);
+        }
+
+        /* Penyesuaian Elemen Form Input */
+        .form-custom-input {
+            background-color: rgba(0, 0, 0, 0.5) !important;
+            border: 2px dashed var(--gold-vintage) !important;
+            color: var(--chalk-white) !important;
+            font-family: 'Special Elite', cursive !important;
+        }
+        .form-custom-input:focus {
+            box-shadow: 0 0 10px var(--gold-glow) !important;
+            border-color: var(--gold-glow) !important;
+        }
+
+        /* Tombol WA Asli */
+        .btn-ticket {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+            background-color: var(--wa-green);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            border-radius: 4px;
+            border: 3px solid #1ebea5;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.3rem;
+            font-family: 'Montserrat', sans-serif;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+            margin-top: 25px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            width: 100%;
+            cursor: pointer;
+        }
+        .btn-ticket:hover { background-color: #20ba56; color: white; }
+
+        /* Sidebar Kanan Asli */
+        .profile-card { text-align: center; }
+        .profile-card h3 {
+            margin: 15px 0 5px 0;
+            font-family: 'Montserrat', sans-serif;
+            color: var(--gold-vintage);
+            font-size: 1.3rem;
+        }
+        .profile-card p.title-sub { font-size: 1.1rem; color: var(--gold-glow); margin: 0; letter-spacing: 1px; }
+        .info-list { list-style: none; padding: 0; margin: 20px 0 0 0; text-align: left; }
+        .info-list li { margin-bottom: 25px; display: flex; align-items: flex-start; gap: 15px; }
+        .info-list i { color: var(--gold-glow); font-size: 1.3rem; margin-top: 4px; }
+        .info-title { color: var(--gold-vintage); font-family: 'Montserrat', sans-serif; font-weight: 700; margin-bottom: 4px; }
+        .lantern-icon { font-size: 1.5rem; color: var(--gold-glow); text-shadow: 0 0 12px var(--gold-glow); margin: 0 10px; }
+
+        footer {
+            background: var(--wood-border);
+            color: var(--chalk-white);
+            text-align: center;
+            padding: 30px 20px;
+            border-top: 4px solid var(--gold-vintage);
+            font-size: 0.95rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+        footer strong { color: var(--gold-glow); }
+
+        /* --- SINKRONISASI MONITOR GRID BOOTSTRAP 5 BERSIH (2 KOLOM: MENU KIRI, INFO KANAN) --- */
+        @media (max-width: 991.98px) {
+            .menu-grid { grid-template-columns: 1fr; gap: 15px; }
+            header h1 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="nav-asli">
+        <ul>
+            <li><a href="#savory"><i class="fas fa-hamburger"></i> Savory Track</a></li>
+            <li><a href="#sweet"><i class="fas fa-cookie-bite"></i> Sweet Track</a></li>
+            <li><a href="#loket-tiket"><i class="fas fa-ticket-alt"></i> Ambil Tiket</a></li>
+        </ul>
+    </nav>
+
+    <header class="jumbotron">
+        <div style="margin-top: 25px; margin-bottom: 15px;">
+            <i class="fas fa-lightbulb lantern-icon"></i>
+            <i class="fas fa-store lantern-icon" style="font-size: 2.5rem; color: var(--gold-vintage);"></i>
+            <i class="fas fa-lightbulb lantern-icon"></i>
+        </div>
+        <h1>Kibo Station</h1>
+        <p>Savory & Sweet Station • Baet, Banda Aceh</p>
+        <div class="tagline">"Ready Untuk Pemberhentian? Lezat Dan Lumer!"</div>
+    </header>
+
+    <main class="container my-5 px-3 px-md-5">
+        <div class="row g-4 justify-content-center">
+            
+            <section class="col-lg-8 col-md-12">
+                
+                <div class="chalk-board" id="savory">
+                    <h2 class="section-title">🚇 Line 1: Savory Track (Burger)</h2>
+                    <div class="menu-grid">
+                        <div class="item"><span class="item-name">- Burger Sosis</span><div class="dots"></div><span class="price">8k</span></div>
+                        <div class="item"><span class="item-name">- Burger Telur</span><div class="dots"></div><span class="price">10k</span></div>
+                        <div class="item"><span class="item-name">- Burger Daging Biasa</span><div class="dots"></div><span class="price">10k</span></div>
+                        <div class="item"><span class="item-name">- Burger Beef</span><div class="dots"></div><span class="price">13k</span></div>
+                        <div class="item"><span class="item-name">- Burger Daging Ayam</span><div class="dots"></div><span class="price">15k</span></div>
+                    </div>
+
+                    <h3 style="color: var(--gold-glow); margin-top: 40px; margin-bottom: 20px; font-family: 'Rye', cursive; font-size: 1.3rem; text-align: center;">🏁 New! Jumbo Size (All +2k)</h3>
+                    <div class="menu-grid">
+                        <div class="item"><span class="item-name">- Jumbo Sosis <span class="jumbo-badge">Jumbo</span></span><div class="dots"></div><span class="price">10k</span></div>
+                        <div class="item"><span class="item-name">- Jumbo Telur <span class="jumbo-badge">Jumbo</span></span><div class="dots"></div><span class="price">12k</span></div>
+                        <div class="item"><span class="item-name">- Jumbo Daging Biasa <span class="jumbo-badge">Jumbo</span></span><div class="dots"></div><span class="price">12k</span></div>
+                        <div class="item"><span class="item-name">- Jumbo Beef <span class="jumbo-badge">Jumbo</span></span><div class="dots"></div><span class="price">15k</span></div>
+                        <div class="item"><span class="item-name">- Jumbo Daging Ayam <span class="jumbo-badge">Jumbo</span></span><div class="dots"></div><span class="price">17k</span></div>
+                    </div>
+                </div>
+
+                <div class="chalk-board" id="sweet">
+                    <h2 class="section-title">🍞 Line 2: Sweet Track (Roti Kukus)</h2>
+                    <div class="menu-grid">
+                        <div class="item"><span class="item-name">- Roti Kukus Coklat</span><div class="dots"></div><span class="price">8k</span></div>
+                        <div class="item"><span class="item-name">- Roti Kukus Keju</span><div class="dots"></div><span class="price">8k</span></div>
+                        <div class="item"><span class="item-name">- Roti Kukus Strawberry</span><div class="dots"></div><span class="price">10k</span></div>
+                        <div class="item"><span class="item-name">- Roti Kukus Blueberry</span><div class="dots"></div><span class="price">10k</span></div>
+                        <div class="item"><span class="item-name">- Mix Coklat Keju</span><div class="dots"></div><span class="price">10k</span></div>
+                        <div class="item"><span class="item-name">- Choco Crunchy</span><div class="dots"></div><span class="price">12k</span></div>
+                        <div class="item"><span class="item-name">- Tiramisu</span><div class="dots"></div><span class="price">12k</span></div>
+                    </div>
+                </div>
+
+                <div class="chalk-board" id="loket-tiket">
+                    <h2 class="section-title">🎫 Loket Pengambilan Tiket Rasa</h2>
+                    <div id="notifikasiAlert"></div>
+                    <form id="formPemesananKibo">
+                        <div class="mb-3">
+                            <label for="namaUser" class="form-label" style="color: var(--gold-vintage);">Nama Penumpang:</label>
+                            <input type="text" class="form-control form-custom-input" id="namaUser" placeholder="Tulis nama kamu..." required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="menuUser" class="form-label" style="color: var(--gold-vintage);">Pilih Jalur Menu:</label>
+                            <select class="form-select form-custom-input" id="menuUser" required>
+                                <option value="" disabled selected>-- Pilih Hidangan Kuliner --</option>
+                                <option value="Burger Beef (13k)">Burger Beef - 13k</option>
+                                <option value="Burger Daging Ayam (15k)">Burger Daging Ayam - 15k</option>
+                                <option value="Roti Kukus Keju (8k)">Roti Kukus Keju - 8k</option>
+                                <option value="Roti Kukus Tiramisu (12k)">Roti Kukus Tiramisu - 12k</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="jumlahPorsi" class="form-label" style="color: var(--gold-vintage);">Jumlah Pesanan (Porsi):</label>
+                            <input type="number" class="form-control form-custom-input" id="jumlahPorsi" min="1" value="1" required>
+                        </div>
+                        <button type="submit" class="btn-ticket">
+                            <i class="fab fa-whatsapp"></i> Ambil Tiket Rasa via WhatsApp (Kibo Express)
+                        </button>
+                    </form>
+                </div>
+
+            </section>
+
+            <aside class="col-lg-4 col-md-12">
+                <div class="chalk-board profile-card">
+                    <h2 style="font-size: 1.2rem;" class="section-title">Station Master</h2>
+                    <h3>BANG KIBO</h3>
+                    <p class="title-sub">MEUKANCAH BARANG</p>
+                </div>
+
+                <div class="chalk-board">
+                    <h2 style="font-size: 1.2rem;" class="section-title">Informasi Stasiun</h2>
+                    <ul class="info-list">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <div class="info-title">Lokasi Pemberhentian:</div>
+                                Jln Laksamana Malahayati, Baet, Aceh Besar.
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <div>
+                                <div class="info-title">Jadwal Keberangkatan:</div>
+                                16.00 - 23.00 WIB
+                            </div>
+                        </li>
+                        <li>
+                            <i class="fas fa-lightbulb"></i>
+                            <div>
+                                <div class="info-title">Kualitas Semboyan:</div>
+                                Lezat, Lumer, & Seni Cita Rasa Tinggi Klasik Est. 2026.
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </aside>
+
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 <strong>Kibo Station - Savory & Sweet</strong>. Dikelola oleh Yazid Ahmad Syabiq Ramadhan</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        document.getElementById('formPemesananKibo').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const namaPenumpang = document.getElementById('namaUser').value;
+            const menuPilihan = document.getElementById('menuUser').value;
+            const kuantitasPorsi = document.getElementById('jumlahPorsi').value;
+
+            const wadahAlert = document.getElementById('notifikasiAlert');
+            wadahAlert.innerHTML = `
+                <div class="alert alert-dismissible fade show font-monospace p-3 mb-4" role="alert" style="background-color: #1a3322; color: #a3cfbb; border: 2px dashed var(--gold-vintage);">
+                    <strong><i class="fas fa-check-circle me-2"></i> KIBO EXPRESS: BERKAS AMAN!</strong><br>
+                    Halo ${namaPenumpang}, tiket ${kuantitasPorsi} porsi ${menuPilihan} terdaftar! Menghubungkan ke Masinis...
+                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+            `;
+
+            const nomorWhatsApp = "6283871116954"; 
+            const isiPesanText = encodeURIComponent(
+                `*NOTIFIKASI LOKET KIBO STATION*\n` +
+                `=============================\n` +
+                `• *Nama Penumpang* : ${namaPenumpang}\n` +
+                `• *Pesanan Menu* : ${menuPilihan}\n` +
+                `• *Jumlah Kuantitas*: ${kuantitasPorsi} Porsi\n` +
+                `=============================\n` +
+                `Harap diproses secepatnya!`
+            );
+
+            setTimeout(function() {
+                window.open(`https://api.whatsapp.com/send?phone=${nomorWhatsApp}&text=${isiPesanText}`, '_blank');
+            }, 1600);
+        });
+    </script>
+</body>
+</html>
